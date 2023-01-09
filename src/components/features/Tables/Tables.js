@@ -8,8 +8,8 @@ const Tables = () => {
 
   return (
     <>
-      {tables.map(table => (
-        <Card>
+      {tables.map(table => 
+        <Card key={table.id}>
           <Card.Body>
             <Row>
               <Col xs={2}>
@@ -24,7 +24,7 @@ const Tables = () => {
             </Row>
           </Card.Body>
         </Card>
-      ))}
+      )}
     </>
   );
 };
