@@ -1,8 +1,6 @@
-import { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { editTableRequest, getTableById, editTable } from "../../../redux/tablesRedux";
+import { getTableById, editTable } from "../../../redux/tablesRedux";
 import TableForm from "../TableForm/TableForm";
 
 const TableCard = () => {

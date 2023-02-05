@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { useForm } from "react-hook-form";
 
 const TableForm = ({ action, ...props }) => {
 
@@ -9,12 +8,6 @@ const TableForm = ({ action, ...props }) => {
   const [peopleAmount, setPeopleAmount] = useState('' || props.peopleAmount);
   const [maxPeopleAmount, setMaxPeopleAmount] = useState('' || props.maxPeopleAmount);
   const [bill, setBill] = useState('' || props.bill);
-
-  const {
-    register,
-    handleSubmit: validate,
-    formState: { errors },
-  } = useForm();
 
   const handleSubmit = () => {
     action({peopleAmount, maxPeopleAmount, status, bill});
@@ -68,15 +61,6 @@ const TableForm = ({ action, ...props }) => {
           <Col sm={1}>
             <Form.Control type='number' value={maxPeopleAmount} onChange={e=>setMaxPeopleAmount(e.target.value)} />
           </Col>
-          {errors.people && (
-                <small className="d-block form-text text-danger mt-2">
-                  This field is required
-                </small>
-              )}
-              {errors.maxPeople && (
-                <small className="d-block form-text text-danger mt-2">
-                  This field is required
-                </small>)}
         </Form.Group>
         {status === "Busy" && <Form.Group as={Row} className='mb-3'>
           <Form.Label column sm={1}>
